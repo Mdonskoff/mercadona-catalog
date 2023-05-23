@@ -29,9 +29,19 @@ pip install -r requirements.txt
 
 Le site web est accessible à l'adresse https://docs.python.org/3/library/venv.html.
 
+**Les identifiants utilisateurs pour l'espace d'administration sont : _jose_ / _jose_.**
+
 Pour plus d'information sur le script _manage_, consulter [la documentation officielle](https://docs.djangoproject.com/en/4.2/ref/django-admin/).
 
-## Notes
+## Remarques
 
-Le template HTML utilisé s'inspire de celui fourni par la [W3School](https://www.w3schools.com/w3css/w3css_templates.asp).
+Le projet ne délivre pas les fonctionnalités suivantes :
+
+- Filtre des produits à l'affichage
+- Déconnexion de l'utilisateur identifié
+
+
+
+
+
 
