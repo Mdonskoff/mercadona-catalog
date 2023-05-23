@@ -1,0 +1,32 @@
+- [ ] Authentification page login
+  - [ ] saisie des informations de josé
+  - [ ] Ne pas pouvoir entrer dans l'espace admin si pas auth
+  - [ ] Bouton déconnexion + texte confirmation de déconnexion
+- [ ] Faire un filtre : pour afficher les produits par catégorie
+- [ ] Opt : Page catalogue responsive (produits qui s'adaptent à la réduction)
+- [ ] Faire la page d'accueil
+  - [ ] Bouton "Connexion"
+  - [X] Utiliser le template héritage pour la page
+  - [X] Inclure image home + "Bienvenue chez Mercadona"
+  - [X] Texte de contexte en dessous
+  - [X] Bouton "Catalogue"
+- [ ] Tests et rapport détaillant le % de code total couvert par les tests.
+- [ ] Documentation technique : aborder la sécurité et évolutions futures de l'app.
+- [X] Enrichir le README
+- [X] Preparer la page produits public
+  - [X] Préparer le système d'héritage de templates
+  - [X] L'utiliser pour la page catalogue
+  - [X] Faire un layout HTML de l'index
+  - [X] Faire un style pour cette merde
+  - [X] Présenter le contenu correctement
+- [X] Populate la BDD avec de nouveaux produits
+- [X] Faire l'espace d'administration
+  - [X] Lister les produits
+  - [X] Afficher les détails du produit
+  - [X] Lister les produits inactifs aussi
+  - [X] Bouton "Promotion" qui permet de saisir un % à appliquer au prix avec une date de début et de fin.
+    - [X] Start date et end date
+  - [X] Modifier Produit
+  - [X] Supprimer produit
+  - [X] Créer produit
+  - [X] Confirmation

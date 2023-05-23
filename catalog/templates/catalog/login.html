@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}Connexion{% endblock title %}
+
+{% block content %}
+<div class="bloc">
+    <form method="post" action="login.html">
+       {% csrf_token %}
+       <div class="text">
+            <label>Nom d'utilisateur</label>
+            <input type="text" name="username"></input>
+            <label>Mot de passe</label>
+            <input type="password" name="password"></input>
+        </div>
+        <button type="submit" class="btn btn-primary">Connexion</button>
+    </form>
+</div>
+{% endblock content %}

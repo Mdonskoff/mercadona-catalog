@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container admin-panel">
+    <div class="row">
+        <div class="col admin-product-list-wrapper border-me">
+            <div class="row">
+                    <div class="list-group admin-product-list" id="admin-product-list"></div>
+            </div>
+            <div class="row">
+                    <button id="admCreate" type="button" class="btn btn-primary">Créer nouveau produit</button>
+                    <button hidden id="admDelete" type="button" class="btn btn-danger">Supprimer</button>
+            </div>
+        </div>
+        <div class="col admin-product-details-wrapper border-me">
+            <div class="row">
+               <form id="admin-product-details-form" method="post" action="admin.html" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col">
+                            <label for="admDetailsName">Nom du Produit</label>
+                            <input type="text" class="form-control" name="product_name" id="admDetailsName" placeholder="Nom" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="admDetailsDesc">Description</label>
+                            <input type="text" class="form-control" id="admDetailsDesc" name="product_desc" placeholder="Description" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="admDetailsCat">Catégorie</label>
+                            <select class="form-control" name="product_cat_id" id="admDetailsCat"></select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="admDetailsPrice">Prix</label>
+                            <input step=".01" type="number" class="form-control" name="product_price" id="admDetailsPrice" />
+                        </div>
+                        <div class="col">
+                            <label for="admDetailsPic">Image</label>
+                            <input type="file" class="form-control-file" id="admDetailsPic" name="product_img_name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input type="checkbox" class="btn-check" name="product_enabled" id="admDetailsEnabled" checked autocomplete="off">
+                        <label class="btn btn-outline-secondary" id="admDetailsEnabledLabel" for="admDetailsEnabled">Actif</label>
+                        <br>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <div class="form-check col">
+                                <input class="form-check-input" type="checkbox" value="1" name="product_discount" id="admPromoEnabled">
+                                <label class="form-check-label" for="admPromoEnabled">Promotion</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="admPromoValue">Valeur</label>
+                                <input step=".01" type="number" class="form-control" name="product_discount_value" id="admPromoValue" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="admPromoStart">Début</label>
+                                <input name="product_discount_start" id="admPromoStart" type="date" value="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="admPromoEnd">Fin</label>
+                                <input name="product_discount_end" id="admPromoEnd" type="date" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button id="admValidate" type="submit" class="btn btn-primary">Sélectionnez un produit dans la liste</button>
+                    </div>
+                    <div class="row"></div>
+                    <hr />
+                    <div id="admin-product-preview"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
