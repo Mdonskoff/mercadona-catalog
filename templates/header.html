@@ -5,7 +5,13 @@
     </div>
     <ul class="nav-menu">
       <li class="nav-menu-item"><a href="/catalog.html">Catalogue</a></li>
-      <li class="nav-menu-item"><a href="/admin.html">Connexion</a></li>
+
+      {% if user.is_authenticated %}
+        <li class="nav-menu-item"><a href="/logout.html">Déconnexion</a></li>
+      {% else %}
+        <li class="nav-menu-item"><a href="/admin.html">Connexion</a></li>
+      {% endif %}
+
     </ul>
   </nav>
 </div>
