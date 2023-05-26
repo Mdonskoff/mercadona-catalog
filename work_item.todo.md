@@ -1,17 +1,14 @@
-- [ ] Authentification page login
-  - [ ] saisie des informations de josé
-  - [ ] Ne pas pouvoir entrer dans l'espace admin si pas auth
-  - [ ] Bouton déconnexion + texte confirmation de déconnexion
-- [ ] Faire un filtre : pour afficher les produits par catégorie
-- [ ] Opt : Page catalogue responsive (produits qui s'adaptent à la réduction)
-- [ ] Faire la page d'accueil
-  - [ ] Bouton "Connexion"
+- [X] Authentification page login
+  - [X] saisie des informations de josé
+  - [X] Ne pas pouvoir entrer dans l'espace admin si pas auth
+  - [ ] (FAIT APRÈS RENDU V0) Bouton déconnexion + texte confirmation de déconnexion 
+- [ ] (FAIT APRÈS RENDU V0) Faire un filtre : pour afficher les produits par catégorie 
+- [X] Faire la page d'accueil
+  - [X] Bouton "Connexion"
   - [X] Utiliser le template héritage pour la page
   - [X] Inclure image home + "Bienvenue chez Mercadona"
   - [X] Texte de contexte en dessous
   - [X] Bouton "Catalogue"
-- [ ] Tests et rapport détaillant le % de code total couvert par les tests.
-- [ ] Documentation technique : aborder la sécurité et évolutions futures de l'app.
 - [X] Enrichir le README
 - [X] Preparer la page produits public
   - [X] Préparer le système d'héritage de templates

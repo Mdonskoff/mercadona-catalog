@@ -122,6 +122,11 @@
   padding: 0;
   display: flex;
 }
+/* Boutons Connexion/Déconnexion/Administration */
+.nav-menu2 {
+  display: inline-flex;
+  margin: 0;
+}
 
 .nav-menu-item {
   margin-left: 40px;
