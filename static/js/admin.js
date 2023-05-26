@@ -64,6 +64,8 @@ function onAdminProduct_Click(type, listenever) {
 
         // Afficher le bouton de suppression
         document.getElementById('admDelete').hidden=false;
+
+        information(null)
       }
     }
   xhttp.open('GET', '/product.json?id='+btnSelected.dataset.product_id, true);
@@ -161,6 +163,7 @@ function prepareNewProduct() {
   btnValidate.innerHTML= 'Créer';
   btnValidate.disabled = false;
   document.getElementById('admPromoEnabled').disabled = true
+  information(null)
 }
 
 function deleteCurrentProduct() {
@@ -169,6 +172,7 @@ function deleteCurrentProduct() {
    xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         preparePage();
+        information("Produit supprimé");
       }
     }
 
@@ -176,6 +180,16 @@ function deleteCurrentProduct() {
   product_id = form.dataset.current_product;
   xhttp.open('GET', '/delete/'+product_id+'/', true);
   xhttp.send();
+}
+
+// Message d'inforamtion des actions avec le produit
+function information(message) {
+  pInfo = document.getElementById('information');
+  if (message != null && message.length > 0) {
+    pInfo.innerHTML = message;
+  } else {
+    pInfo.innerHTML = "";
+  }
 }
 
 function preparePage() {

@@ -22,6 +22,11 @@ def index(request):
 
 
 def admin(request):
+    context = {
+        "page_title": "Administration",
+        "page_script": "js/admin.js",
+        "page_header": "Espace d'administration du catalogue",
+    }
     if not request.user.is_authenticated:
         return redirect('login.html')
     product_id = request.GET.get('id', None)
@@ -29,8 +34,11 @@ def admin(request):
     if request.method == 'POST':
         if product_id is None:
             product = Product()
+            context['page_information'] = 'Produit crée'
         else:
             product = Product.objects.get(id=product_id)
+            context["page_information"] = 'Produit mis à jour'
+
         product.name = request.POST['product_name']
         product.description = request.POST['product_desc']
         product.category_id = request.POST['product_cat_id']
@@ -60,11 +68,6 @@ def admin(request):
                 pass
 
     template = loader.get_template("catalog/admin.html")
-    context = {
-        "page_title": "Administration",
-        "page_script": "js/admin.js",
-        "page_header": "Espace d'administration du catalogue",
-    }
     return HttpResponse(template.render(context, request))
 
 

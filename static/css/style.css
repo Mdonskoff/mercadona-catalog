@@ -207,3 +207,16 @@
   margin-top: 100px;
   font-family: Cochin;
 }
+
+
+
+/* Message d'alerte de confirmation d'action */
+.information {
+  color: red;
+  /* border: 1px dashed darkred; */
+  width: 800px;
+  min-height: 20px;
+  margin: auto;
+  text-align: center;
+  font-weight: bold;
+}
