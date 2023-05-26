@@ -213,7 +213,50 @@
   font-family: Cochin;
 }
 
+/* Filtres des produits */
+.product-filter {
+    margin: auto;
+}
 
+.product-filter-container {
+  font-family: Cochin;
+  font-weight: bold;
+  width: 100%;
+  margin: 30px auto auto auto;
+  display: grid;
+  grid-template-columns: 5fr 5fr 5fr 5fr 5fr 5fr;
+  grid-gap: 10px;
+}
+
+.product-filter-item {
+  border-radius: 15px;
+  padding: 10px;
+  margin: 0;
+}
+
+.product-filter-item input {
+display: inline-block;
+  margin: 5px 5px 0 0;
+  padding: 0;
+  float: left;
+
+}
+
+.product-filter-item label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.product-filter-discount {
+  background-color: rgb(175, 212, 11);
+}
+
+.product-filter-cat {
+  background-color: lightgrey;
+}
 
 /* Message d'alerte de confirmation d'action */
 .information {

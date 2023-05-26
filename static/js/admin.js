@@ -119,7 +119,9 @@ function getProductList() {
         
       }
     };
-    xhttp.open('GET', '/catalog.json?all=yes', true);
+
+     url = '/catalog.json?all=yes&'+make_product_filter()
+    xhttp.open('GET', url, true);
     xhttp.send(null);
 }
 
@@ -141,7 +143,7 @@ function getCategoryList() {
            option.value = category.id;
            ddlCategories.appendChild(option);
         });
-        
+        prepareFilter(categories, getProductList);
       }
     };
     xhttp.open('GET', '/categories.json', true);

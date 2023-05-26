@@ -16,10 +16,27 @@ function refreshCatalog() {
         
       }
     };
-    xhttp.open('GET', '/catalog.json', true);
+
+     url = '/catalog.json?'+make_product_filter()
+    console.log(url);
+    xhttp.open('GET',url, true);
     xhttp.send();
 }
 
-document.onload = refreshCatalog()
+function preparePage() {
+  refreshCatalog();
+
+  var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      categories = JSON.parse(this.responseText).categories
+      prepareFilter(categories, refreshCatalog);
+    }
+  };
+  xhttp.open('GET', '/categories.json', true);
+  xhttp.send();
+}
+
+document.onload = preparePage()
 
 

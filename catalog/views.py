@@ -125,10 +125,25 @@ def product_json(request):
 
 def catalog_json(request):
     all_products = request.GET.get('all', None)
-    if all_products is None:
-        active_products = Product.objects.filter(enabled=True)
-    else:
-        active_products = Product.objects.all()
+    cat_filter = request.GET.get('cat', None)
+    only_discounts = request.GET.get('discounts', None)
+
+    active_products = Product.objects.all()
+
+    # Filtrer par catégorie
+    if cat_filter is not None and cat_filter !="":
+        cat_filter = [int(c) for c in cat_filter.split(',')]
+        active_products = active_products.filter(category_id__in=cat_filter)
+
+    # Seulement les promos
+    if only_discounts is not None and only_discounts.lower() in ['1', 'true']:
+        all_discounts = Discount.objects.all()
+        active_products = active_products.filter(
+            id__in=[d.product_id for d in all_discounts])
+
+    # Filtrer seulement les produts actifs
+    if all_products is not None and all_products.lower() in ['1', 'true']:
+        active_products = active_products.filter(enabled=True)
 
     active_products = [p.desc() for p in active_products]
     return JsonResponse({'products': active_products})

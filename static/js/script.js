@@ -58,3 +58,78 @@ function buildProductDiv(product) {
   return divItem;
 }
 
+function prepareFilter(categories, update) {
+  filterContainer = document.getElementById('productFilter');
+
+  filterContainer.innerHTML = ""
+
+  divFilter = document.createElement('div');
+  divFilter.classList.add('product-filter-item');
+  divFilter.classList.add('product-filter-discount');
+
+  inputFilter = document.createElement('input');
+  inputFilter.type = 'checkbox';
+  inputFilter.id = 'filter_discount';
+  inputFilter.addEventListener('click', update);
+  divFilter.appendChild(inputFilter);
+
+  labelFilter = document.createElement('label');
+  labelFilter.innerHTML = 'En Promotion';
+  labelFilter.htmlFor = 'filter_discount';
+
+  divFilter.appendChild(labelFilter);
+
+  filterContainer.appendChild(divFilter);
+
+  categories.forEach(category => {
+    cat_id = 'filter_cat_'+category.id;
+
+    divFilter = document.createElement('div');
+    divFilter.classList.add('product-filter-item');
+    divFilter.classList.add('product-filter-cat');
+
+    inputFilter = document.createElement('input');
+    inputFilter.type = 'checkbox';
+    inputFilter.id = cat_id;
+    inputFilter.dataset.cat_id = category.id;
+    inputFilter.addEventListener('click', update);
+    divFilter.appendChild(inputFilter);
+
+    labelFilter = document.createElement('label');
+    labelFilter.innerHTML = category.name;
+    labelFilter.htmlFor = cat_id;
+
+    divFilter.appendChild(labelFilter);
+
+    filterContainer.appendChild(divFilter);
+  });
+}
+
+
+function make_product_filter() {
+  filters = [];
+
+  filterContainer = document.getElementById('productFilter');
+  categories = []
+  if (filterContainer != null) {
+    for(d = 0 ; d < filterContainer.children.length ; d++) {
+      divChild = filterContainer.children[d];
+      for(c = 0 ; c < divChild.children.length ; c++) {
+        child = divChild.children[c];
+        if (child.type =='checkbox' && child.checked) {
+          if ('cat_id' in child.dataset) {
+          categories.push(child.dataset.cat_id);
+          } else {
+            filters.push('discounts=1');
+          }
+        }
+      }
+    }
+  }
+
+  if (categories.length > 0) {
+    filters.push('cat=' + categories.join(','))
+  }
+
+  return filters.join('&');
+}
